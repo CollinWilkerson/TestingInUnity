@@ -4,7 +4,18 @@ using UnityEngine;
 public class Player : MonoBehaviour, IPlayer
 {
     private CharacterController character;
+
+    [SerializeField] bool isPlayer;
+
+    public bool IsPlayer()
+    {
+        return isPlayer;
+    }
+
     private int health = 10;
+
+    public int Health { get; set; }
+
     private void Awake()
     {
         character = gameObject.GetComponent<CharacterController>();
@@ -20,10 +31,5 @@ public class Player : MonoBehaviour, IPlayer
     public void TakeDamage()
     {
         health--;
-    }
-
-    public int GetHealth()
-    {
-        return health;
     }
 }

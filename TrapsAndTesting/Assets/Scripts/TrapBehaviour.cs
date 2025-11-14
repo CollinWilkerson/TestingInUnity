@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class TrapBehaviour : MonoBehaviour
 {
+    [SerializeField] private TrapTargetType trapType;
+
     private Trap trap;
 
     private void Awake()
@@ -11,6 +13,8 @@ public class TrapBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         IPlayer player = other.GetComponent<IPlayer>();
-        trap.HandleCharacterEnter(player);
+        trap.HandleCharacterEnter(player, trapType);
     }
 }
+
+public enum TrapTargetType { Player, Npc}

@@ -1,7 +1,18 @@
 ﻿public class Trap
 {
-    public void HandleCharacterEnter(IPlayer player)
+    public void HandleCharacterEnter(IPlayer player, TrapTargetType trapType)
     {
-            player?.TakeDamage();
+        if (player.IsPlayer())
+        {
+            if (trapType == TrapTargetType.Player)
+            {
+                player.Health--;
+            }
+            return;
+        }
+        if(trapType == TrapTargetType.Npc)
+        {
+            player.Health--;
+        }
     }
 }

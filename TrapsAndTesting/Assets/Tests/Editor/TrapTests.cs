@@ -1,5 +1,6 @@
 using System.Collections;
 using NUnit.Framework;
+using NSubstitute;
 using UnityEngine;
 
 public class TrapTests
@@ -14,12 +15,23 @@ public class TrapTests
 
     // A Test behaves as an ordinary method
     [Test]
-    public void TrapDealsOneDamageOnEnter()
+    public void Player_TrapDealsOneDamageOnPlayerEnter()
     {
-        IPlayer player = new Player();
-        int startHealth = player.GetHealth();
-        trap.HandleCharacterEnter(player);
+        IPlayer player = Substitute.For<IPlayer>();
+        int startHealth = player.Health;
+        player.IsPlayer().Returns(true);
+        trap.HandleCharacterEnter(player, TrapTargetType.Player);
 
-        Assert.AreEqual(startHealth, player.GetHealth() - 1);
+        Assert.AreEqual(startHealth, player.Health + 1);
+    }
+
+    [Test]
+    public void NPCTrapDealsOneDamageOnNPCEnter()
+    {
+        IPlayer player = Substitute.For<IPlayer>();
+        int startHealth = player.Health;
+        trap.HandleCharacterEnter(player, TrapTargetType.Npc);
+
+        Assert.AreEqual(startHealth, player.Health + 1);
     }
 }
