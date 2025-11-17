@@ -1,16 +1,37 @@
-using UnityEngine;
+using NUnit.Framework;
+using NSubstitute;
 
-public class EquipmentStealingTrapTests : MonoBehaviour
+public class EquipmentStealingTrapTests
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    EquipmentStealingTrap trap;
+
+    [SetUp]
+    public void SetUp()
     {
-        
+        trap = new EquipmentStealingTrap();
     }
 
-    // Update is called once per frame
-    void Update()
+    [Test]
+    public void PlayerEntersWithArmorAndNoWeaponTakesArmor()
     {
-        
+        IPlayer player = Substitute.For<IPlayer>();
+    }
+
+    [Test]
+    public void PlayerEntersWithArmorAndWeaponTakesArmor()
+    {
+
+    }
+
+    [Test]
+    public void PlayerEntersWithWeaponAndNoArmorTakesWeapon()
+    {
+
+    }
+
+    [Test]
+    public void PlayerEntersWithNoWeaponAndNoArmorTakesOneDamage()
+    {
+
     }
 }
