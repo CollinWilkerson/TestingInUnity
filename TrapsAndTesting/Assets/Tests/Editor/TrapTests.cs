@@ -15,7 +15,7 @@ public class TrapTests
 
     // A Test behaves as an ordinary method
     [Test]
-    public void Player_TrapDealsOneDamageOnPlayerEnter()
+    public void PlayerTrapDealsOneDamageOnPlayerEnter()
     {
         IPlayer player = Substitute.For<IPlayer>();
         int startHealth = player.Health;

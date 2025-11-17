@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IPlayer
 {
+    public IEquipment weapon { get; set; }
+    public IEquipment armor { get; set; }
+
     private CharacterController character;
 
     [SerializeField] bool isPlayer;
@@ -19,6 +22,8 @@ public class Player : MonoBehaviour, IPlayer
     private void Awake()
     {
         character = gameObject.GetComponent<CharacterController>();
+        weapon = gameObject.GetComponent<Weapon>();
+        armor = gameObject.GetComponent<Armor>();
     }
 
     // Update is called once per frame
