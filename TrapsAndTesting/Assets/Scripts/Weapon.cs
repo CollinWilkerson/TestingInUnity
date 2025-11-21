@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour, IEquipment
+public class Weapon : IEquipment
 {
     public string getEquipmentName()
     {

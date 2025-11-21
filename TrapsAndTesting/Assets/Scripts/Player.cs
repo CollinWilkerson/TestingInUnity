@@ -22,8 +22,8 @@ public class Player : MonoBehaviour, IPlayer
     private void Awake()
     {
         character = gameObject.GetComponent<CharacterController>();
-        weapon = gameObject.GetComponent<Weapon>();
-        armor = gameObject.GetComponent<Armor>();
+        weapon = new Weapon();
+        armor = new Armor();
     }
 
     // Update is called once per frame

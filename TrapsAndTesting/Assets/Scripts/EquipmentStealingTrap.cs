@@ -4,7 +4,7 @@ public class EquipmentStealingTrap
 {
     public void OnTrapEnter(IPlayer player)
     {
-        if(player.armor != null)
+        if (player.armor != null)
         {
             player.armor = null;
             return;
@@ -14,6 +14,6 @@ public class EquipmentStealingTrap
             player.weapon = null;
             return;
         }
-        player.Health --;
+        player.Health -= 1;
     }
 }
